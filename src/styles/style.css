@@ -10,13 +10,16 @@
   --fifth_color: #fefae0;
 }
 
+body {
+  background-image: linear-gradient(var(--main_color), var(--fourth_color));
+}
+
 #main_container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: auto;
-  padding: var(--padding_large);
-  background-image: linear-gradient(var(--main_color), var(--fourth_color));
+  height: 85vh;
+  padding: 10vh;
   color: var(--fifth_color);
 }
 
@@ -25,13 +28,98 @@
   justify-content: space-between;
 }
 
-#daily_cards {
+#left_container {
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#current_weather {
+  font-size: 3rem;
+}
+
+#location {
+  font-size: 1.75rem;
+}
+
+#date {
+  font-size: 1.25rem;
+}
+
+#current_temp {
+  font-size: 3rem;
+}
+
+#toggle_measure {
+  background-color: transparent;
+  border: none;
+  color: var(--fifth_color);
+  align-self: flex-start;
+  font-size: 0.8rem;
+  padding: 3px;
+}
+
+#toggle_measure:hover {
+  border: solid 1px var(--fifth_color);
+  border-radius: 3px;
+}
+
+#new_location {
+  background-color: transparent;
+  border: none;
+  font-size: 1.25rem;
+  padding: 3px;
+  margin-right: 10px;
+  border-bottom: solid 2px var(--fifth_color);
+  color: var(--fifth_color);
+}
+
+#submit {
+  background-color: transparent;
+  border: solid 2px var(--fifth_color);
+  border-radius: 5px;
+  font-size: 1.25rem;
+  padding: 5px;
+  color: var(--fifth_color);
+}
+
+#submit:hover {
+  background-color: var(--fifth_color);
+  color: var(--main_color);
+}
+::placeholder {
+  color: var(--fifth_color);
+  opacity: 0.5;
+}
+#right_container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: end;
+  font-size: 1.2rem;
+}
+
+#forcast_container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--padding_standard);
+}
+
+#daily {
+  font-size: 2rem;
+}
+#daily_cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--padding_standard);
 }
 
 .card {
   display: flex;
   flex-direction: column;
   gap: var(--padding_standard);
+  padding: var(--padding_standard);
+  border: var(--fifth_color) solid 2px;
+  border-radius: 20px;
+  box-shadow: 1px 1px 5px;
 }
