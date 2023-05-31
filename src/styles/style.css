@@ -1,0 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+  --padding_standard: 20px;
+  --padding_large: 40px;
+}
+
+#main_container {
+  display: flex;
+  flex-direction: column;
+  padding: var(--padding_large);
+  background-color: aquamarine;
+}

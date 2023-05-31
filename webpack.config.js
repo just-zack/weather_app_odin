@@ -1,7 +1,5 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { Script } = require("vm");
-const { type } = require("os");
 
 module.exports = {
   mode: "development",
