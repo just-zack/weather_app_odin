@@ -1,13 +1,12 @@
-let location;
-let defaultLocation;
+let weatherData;
 
 async function getWeatherData(location) {
   const data = await fetch(
-    "http://api.weatherapi.com/v1/forecast.json?key=8725fafca682482d964100105233005&q=Honolulu&days=7&aqi=no&alerts=no"
+    "http://api.weatherapi.com/v1/forecast.json?key=8725fafca682482d964100105233005&q=turkey&days=7&aqi=no&alerts=no"
   );
   const result = await data.json();
-  console.log(result);
-  //return result
+  weatherData = result;
+  return weatherData;
 }
 
 function getLocation() {
@@ -18,8 +17,13 @@ function setLocation(variable) {
   location = variable;
 }
 
+function getData() {
+  console.log(weatherData);
+}
+
 export default {
   getWeatherData,
   getLocation,
   setLocation,
+  getData,
 };
