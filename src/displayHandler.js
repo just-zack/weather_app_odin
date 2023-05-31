@@ -62,10 +62,12 @@ function changeMeasurement() {
     currentMeasurement = "c";
     currentTemp.innerText = data.current.temp_c + " °C";
     feelsLikeTemp.innerText = data.current.feelslike_c + " °C";
+    toggleMeasure.innerText = "Display °F";
   } else if (currentMeasurement === "c") {
     currentMeasurement = "f";
     currentTemp.innerText = data.current.temp_f + " °F";
     feelsLikeTemp.innerText = data.current.feelslike_f + " °F";
+    toggleMeasure.innerText = "Display °C";
   }
 }
 

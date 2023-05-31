@@ -34,3 +34,7 @@ useData();
 changeLocationAddEventListener();
 changeMeasurementEventListener();
 console.log(data);
+
+// work on date modificaiton
+// work on day query
+// work on changing F to C in forecast
