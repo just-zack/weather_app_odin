@@ -26,7 +26,12 @@ function setLocationCurrentWeather(data) {
 }
 
 function setLocationForecast(data) {
+  let forecastContainer = document.getElementById("forecast_container");
   let cardContainer = document.getElementById("daily_cards");
+  cardContainer.remove();
+  cardContainer = document.createElement("div");
+  cardContainer.setAttribute("id", "daily_cards");
+  forecastContainer.appendChild(cardContainer);
   for (let i = 0; i < 7; i++) {
     let card = document.createElement("div");
     let day = document.createElement("h2");
