@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+  <script defer src="index.bundle.js"></script></head>
+  <body>
+    <div id="main_container">
+      <div id="current_weather_container">
+        <div id="left_container">
+          <h1 id="current_weather">Partly Cloudy</h1>
+          <h3 id="location">Honolulu</h3>
+          <h3 id="date">5/5/32</h3>
+          <h1 id="current_temp">70 F</h1>
+          <button id="toggle_measure">Display C</button>
+          <img id="current_weather_icon" />
+          <form id="change_location">
+            <span>
+              <input
+                type="text"
+                id="new_location"
+                placeholder="Lookup a location"
+              />
+              <button type="submit" id="submit">Search</button>
+            </span>
+          </form>
+        </div>
+        <div id="right_container">
+          <h3 class="titles">Feels Like</h3>
+          <h2 id="feels_like">70</h2>
+          <h3 class="titles">Humidity</h3>
+          <h2 id="humidity">68%</h2>
+          <h3 class="titles">Chance of Rain</h3>
+          <h2 id="percipitation">67%</h2>
+          <h3 class="titles">Wind Speed</h3>
+          <h2 id="wind">6 mph</h2>
+        </div>
+      </div>
+      <div id="forcast_container">
+        <h3 id="daily">Daily</h3>
+        <div id="daily_cards">
+          <div id="day1_card">
+            <h2 class="day">Tuesday</h2>
+            <h3 class="date">Date</h3>
+            <h2 class="avg_temp">70 F</h2>
+            <h3 class="avg_wind">15 mph</h3>
+          </div>
+          <div id="day2_card">
+            <h2 class="day">Tuesday</h2>
+            <h3 class="date">Date</h3>
+            <h2 class="avg_temp">70 F</h2>
+            <h3 class="avg_wind">15 mph</h3>
+          </div>
+          <div id="day3_card">
+            <h2 class="day">Tuesday</h2>
+            <h3 class="date">Date</h3>
+            <h2 class="avg_temp">70 F</h2>
+            <h3 class="avg_wind">15 mph</h3>
+          </div>
+          <div id="day4_card">
+            <h2 class="day">Tuesday</h2>
+            <h3 class="date">Date</h3>
+            <h2 class="avg_temp">70 F</h2>
+            <h3 class="avg_wind">15 mph</h3>
+          </div>
+          <div id="day5_card">
+            <h2 class="day">Tuesday</h2>
+            <h3 class="date">Date</h3>
+            <h2 class="avg_temp">70 F</h2>
+            <h3 class="avg_wind">15 mph</h3>
+          </div>
+          <div id="day6_card">
+            <h2 class="day">Tuesday</h2>
+            <h3 class="date">Date</h3>
+            <h2 class="avg_temp">70 F</h2>
+            <h3 class="avg_wind">15 mph</h3>
+          </div>
+          <div id="day7_card">
+            <h2 class="day">Tuesday</h2>
+            <h3 class="date">Date</h3>
+            <h2 class="avg_temp">70 F</h2>
+            <h3 class="avg_wind">15 mph</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
