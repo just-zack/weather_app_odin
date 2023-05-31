@@ -3,11 +3,35 @@
   padding: 0;
   --padding_standard: 20px;
   --padding_large: 40px;
+  --main_color: #264653;
+  --secondary_color: #e9c46a;
+  --tertiary_color: #e76f51;
+  --fourth_color: #2a9d8f;
+  --fifth_color: #fefae0;
 }
 
 #main_container {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  min-height: auto;
   padding: var(--padding_large);
-  background-color: aquamarine;
+  background-image: linear-gradient(var(--main_color), var(--fourth_color));
+  color: var(--fifth_color);
+}
+
+#current_weather_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+#daily_cards {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--padding_standard);
 }
