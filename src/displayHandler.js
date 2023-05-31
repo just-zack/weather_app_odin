@@ -8,7 +8,6 @@ const submit = document.getElementById("submit");
 
 const feelsLikeTemp = document.getElementById("feels_like");
 const humidity = document.getElementById("humidity");
-const percipitation = document.getElementById("percipitation");
 const wind = document.getElementById("wind");
 
 let currentMeasurement = "f";
@@ -23,8 +22,34 @@ function setLocationCurrentWeather(data) {
   currentTemp.innerText = data.current.temp_f + " °F";
   feelsLikeTemp.innerText = data.current.feelslike_f + " °F";
   humidity.innerText = data.current.humidity + "%";
-  percipitation.innerText = "remove";
   wind.innerText = data.current.wind_mph + "mph";
+}
+
+function setLocationForecast(data) {
+  let cardContainer = document.getElementById("daily_cards");
+  for (let i = 0; i < 7; i++) {
+    let card = document.createElement("div");
+    let day = document.createElement("h2");
+    let date = document.createElement("h3");
+    let avgTemp = document.createElement("h2");
+    let avgWind = document.createElement("h3");
+
+    card.setAttribute("id", "day" + [i] + "_card");
+    card.classList.add("card");
+    day.classList.add("day");
+    day.innerText = "Get Date";
+    date.classList.add("date");
+    date.innerText = data.forecast.forecastday[i].date;
+    avgTemp.classList.add("avg_temp");
+    avgTemp.innerText = data.forecast.forecastday[i].day.avgtemp_f + " °F";
+    avgWind.classList.add("avg_wind");
+    avgWind.innerText = data.forecast.forecastday[i].day.maxwind_mph + " mph";
+    cardContainer.appendChild(card);
+    card.appendChild(day);
+    card.appendChild(date);
+    card.appendChild(avgTemp);
+    card.appendChild(avgWind);
+  }
 }
 
 function changeMeasurement() {
@@ -39,6 +64,8 @@ function changeMeasurement() {
   }
 }
 
+function changeLocation() {}
+
 function setData(variable) {
   data = variable;
   console.log(data);
@@ -48,4 +75,5 @@ export default {
   setLocationCurrentWeather,
   changeMeasurement,
   setData,
+  setLocationForecast,
 };

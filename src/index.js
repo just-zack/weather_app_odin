@@ -7,6 +7,7 @@ async function useData() {
   data = await dataFunctions.getWeatherData();
   console.log(data);
   displayFunctions.setLocationCurrentWeather(data);
+  displayFunctions.setLocationForecast(data);
 }
 
 function changeMeasurementEventListener() {
