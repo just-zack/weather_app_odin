@@ -3,7 +3,7 @@ let location = "los angeles";
 
 async function getWeatherData() {
   let fetchURL =
-    "http://api.weatherapi.com/v1/forecast.json?key=8725fafca682482d964100105233005&q=" +
+    "https://api.weatherapi.com/v1/forecast.json?key=8725fafca682482d964100105233005&q=" +
     location +
     "&days=7&aqi=no&alerts=no";
   const data = await fetch(fetchURL, {
