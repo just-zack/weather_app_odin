@@ -27,6 +27,7 @@ function changeLocationAddEventListener() {
     event.preventDefault();
     dataFunctions.setLocation(newLocation.value);
     useData();
+    newLocation.value = "";
   });
 }
 
