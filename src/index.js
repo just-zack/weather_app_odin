@@ -33,5 +33,3 @@ function changeLocationAddEventListener() {
 useData();
 changeLocationAddEventListener();
 changeMeasurementEventListener();
-
-//add trees
