@@ -1,3 +1,5 @@
+const body = document.getElementById("body");
+const mainContainer = document.getElementById("main_container");
 const currentWeather = document.getElementById("current_weather");
 const location = document.getElementById("location");
 const date = document.getElementById("date");
@@ -119,7 +121,33 @@ function setData(variable) {
   console.log(data);
 }
 
+function getCurrentHour(data) {
+  let dataDate = data.location.localtime;
+  let date = new Date(dataDate);
+  let currentHour = date.getHours();
+  return currentHour;
+}
+
+function changeColors(data) {
+  let currentHour = getCurrentHour(data);
+  if (currentHour > 6 && currentHour <= 11) {
+    body.style.backgroundImage = "linear-gradient(#e9c46a, #264653)";
+    mainContainer.style.color = "#264653";
+  } else if (currentHour > 11 && currentHour <= 17) {
+    body.style.backgroundImage = "linear-gradient(#e9c46a, #e76f51)";
+    mainContainer.style.color = "#264653";
+  } else if (currentHour > 17 && currentHour <= 20) {
+    body.style.backgroundImage = "linear-gradient(#2a9d8f, #264653)";
+    mainContainer.style.color = "#fefae0";
+  } else {
+    body.style.backgroundImage = "";
+    body.style.backgroundColor = "black";
+    mainContainer.style.color = "#fefae0";
+  }
+}
+
 export default {
+  changeColors,
   setLocationCurrentWeather,
   changeMeasurement,
   setData,

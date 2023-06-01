@@ -5,7 +5,7 @@ let data;
 
 async function useData() {
   data = await dataFunctions.getWeatherData();
-  console.log(data);
+  displayFunctions.changeColors(data);
   displayFunctions.setLocationCurrentWeather(data);
   displayFunctions.setLocationForecast(data);
 }
@@ -23,7 +23,6 @@ function changeLocationAddEventListener() {
   const submit = document.getElementById("submit");
 
   submit.addEventListener("click", () => {
-    console.log(newLocation.value);
     event.preventDefault();
     dataFunctions.setLocation(newLocation.value);
     useData();
@@ -34,7 +33,6 @@ function changeLocationAddEventListener() {
 useData();
 changeLocationAddEventListener();
 changeMeasurementEventListener();
-console.log(data);
 
 // work on date modificaiton
 // work on day query
