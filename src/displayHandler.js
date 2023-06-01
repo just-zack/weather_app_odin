@@ -38,11 +38,12 @@ function setLocationForecast(data) {
     let date = document.createElement("h3");
     let avgTemp = document.createElement("h2");
     let avgWind = document.createElement("h3");
+    let dayOfWeek = convertDayOfWeek(data, [i]);
 
     card.setAttribute("id", "day" + [i] + "_card");
     card.classList.add("card");
     day.classList.add("day");
-    day.innerText = "Get Date";
+    day.innerText = dayOfWeek;
     date.classList.add("date");
     date.innerText = data.forecast.forecastday[i].date;
     avgTemp.classList.add("avg_temp");
@@ -54,6 +55,27 @@ function setLocationForecast(data) {
     card.appendChild(date);
     card.appendChild(avgTemp);
     card.appendChild(avgWind);
+  }
+}
+
+function convertDayOfWeek(data, i) {
+  let date = new Date(data.forecast.forecastday[i].date);
+  let dayNumber = date.getDay();
+
+  if (dayNumber === 0) {
+    return "Sunday";
+  } else if (dayNumber === 1) {
+    return "Monday";
+  } else if (dayNumber === 2) {
+    return "Tuesday";
+  } else if (dayNumber === 3) {
+    return "Wednesday";
+  } else if (dayNumber === 4) {
+    return "Thursday";
+  } else if (dayNumber === 5) {
+    return "Friday";
+  } else if (dayNumber === 6) {
+    return "Saturday";
   }
 }
 

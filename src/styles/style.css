@@ -21,6 +21,7 @@ body {
   height: 85vh;
   padding: 10vh;
   color: var(--fifth_color);
+  gap: var(--padding_large);
 }
 
 #current_weather_container {
@@ -117,6 +118,7 @@ body {
 .card {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: var(--padding_standard);
   padding: var(--padding_standard);
   border: var(--fifth_color) solid 2px;
