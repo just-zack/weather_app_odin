@@ -3,8 +3,6 @@ const location = document.getElementById("location");
 const date = document.getElementById("date");
 const currentTemp = document.getElementById("current_temp");
 const toggleMeasure = document.getElementById("toggle_measure");
-const newLocation = document.getElementById("new_location");
-const submit = document.getElementById("submit");
 
 const feelsLikeTemp = document.getElementById("feels_like");
 const humidity = document.getElementById("humidity");
@@ -14,15 +12,21 @@ let currentMeasurement = "f";
 let data;
 
 function setLocationCurrentWeather(data) {
-  console.log(data);
-  console.log(data.current.condition.text);
   currentWeather.innerText = data.current.condition.text;
   location.innerText = data.location.name + ", " + data.location.country;
-  date.innerText = data.location.localtime;
+  date.innerText = getNewDateString(data);
   currentTemp.innerText = data.current.temp_f + " °F";
   feelsLikeTemp.innerText = data.current.feelslike_f + " °F";
   humidity.innerText = data.current.humidity + "%";
-  wind.innerText = data.current.wind_mph + "mph";
+  wind.innerText = data.current.wind_mph + " mph";
+}
+
+function getNewDateString(data) {
+  let currentTime = data.location.localtime;
+  let newDate = new Date(currentTime);
+  let newDateString = newDate.toDateString();
+
+  return newDateString;
 }
 
 function setLocationForecast(data) {
@@ -35,6 +39,7 @@ function setLocationForecast(data) {
   for (let i = 0; i < 7; i++) {
     let card = document.createElement("div");
     let day = document.createElement("h2");
+    let condition = document.createElement("h1");
     let date = document.createElement("h3");
     let avgTemp = document.createElement("h2");
     let avgWind = document.createElement("h3");
@@ -44,6 +49,8 @@ function setLocationForecast(data) {
     card.classList.add("card");
     day.classList.add("day");
     day.innerText = dayOfWeek;
+    condition.classList.add("condition");
+    condition.innerText = data.forecast.forecastday[i].day.condition.text;
     date.classList.add("date");
     date.innerText = data.forecast.forecastday[i].date;
     avgTemp.classList.add("avg_temp");
@@ -53,7 +60,7 @@ function setLocationForecast(data) {
     avgWind.innerText = data.forecast.forecastday[i].day.maxwind_mph + " mph";
     cardContainer.appendChild(card);
     card.appendChild(day);
-    card.appendChild(date);
+    card.appendChild(condition);
     card.appendChild(avgTemp);
     card.appendChild(avgWind);
   }
