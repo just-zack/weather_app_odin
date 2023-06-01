@@ -3,7 +3,6 @@ const mainContainer = document.getElementById("main_container");
 const currentWeather = document.getElementById("current_weather");
 const location = document.getElementById("location");
 const date = document.getElementById("date");
-const time = document.getElementById("time");
 const currentTemp = document.getElementById("current_temp");
 const toggleMeasure = document.getElementById("toggle_measure");
 
@@ -18,7 +17,6 @@ function setLocationCurrentWeather(data) {
   currentWeather.innerText = data.current.condition.text;
   location.innerText = data.location.name + ", " + data.location.country;
   date.innerText = getNewDateString(data);
-  time.innerText = getNewTimeString(data);
   currentTemp.innerText = data.current.temp_f + " °F";
   feelsLikeTemp.innerText = data.current.feelslike_f + " °F";
   humidity.innerText = data.current.humidity + "%";
@@ -31,14 +29,6 @@ function getNewDateString(data) {
   let newDateString = newDate.toDateString();
 
   return newDateString;
-}
-
-function getNewTimeString(data) {
-  let currentTime = data.location.localtime;
-  let newDate = new Date(currentTime);
-  let newTimeString = newDate.toTimeString();
-
-  return newTimeString;
 }
 
 function setLocationForecast(data) {
