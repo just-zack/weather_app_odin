@@ -5,6 +5,8 @@ module.exports = {
   mode: "development",
   entry: {
     index: "./src/index.js",
+    display: "./src/displayHandler.js",
+    data: "./src/dataHandler.js",
   },
   devtool: "inline-source-map",
   plugins: [
