@@ -130,6 +130,7 @@ function getCurrentHour(data) {
 
 function changeColors(data) {
   let currentHour = getCurrentHour(data);
+  console.log(currentHour);
   if (currentHour > 6 && currentHour <= 11) {
     body.style.backgroundImage = "linear-gradient(#e9c46a, #264653)";
     mainContainer.style.color = "#264653";
