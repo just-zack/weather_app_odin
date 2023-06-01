@@ -33,7 +33,3 @@ function changeLocationAddEventListener() {
 useData();
 changeLocationAddEventListener();
 changeMeasurementEventListener();
-
-// work on date modificaiton
-// work on day query
-// work on changing F to C in forecast
