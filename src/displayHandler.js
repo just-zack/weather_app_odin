@@ -47,6 +47,7 @@ function setLocationForecast(data) {
     date.classList.add("date");
     date.innerText = data.forecast.forecastday[i].date;
     avgTemp.classList.add("avg_temp");
+    avgTemp.setAttribute("id", "avgTemp_" + [i]);
     avgTemp.innerText = data.forecast.forecastday[i].day.avgtemp_f + " °F";
     avgWind.classList.add("avg_wind");
     avgWind.innerText = data.forecast.forecastday[i].day.maxwind_mph + " mph";
@@ -85,15 +86,26 @@ function changeMeasurement() {
     currentTemp.innerText = data.current.temp_c + " °C";
     feelsLikeTemp.innerText = data.current.feelslike_c + " °C";
     toggleMeasure.innerText = "Display °F";
+    changeForecastMeasurement("f");
   } else if (currentMeasurement === "c") {
     currentMeasurement = "f";
     currentTemp.innerText = data.current.temp_f + " °F";
     feelsLikeTemp.innerText = data.current.feelslike_f + " °F";
     toggleMeasure.innerText = "Display °C";
+    changeForecastMeasurement("c");
   }
 }
 
-function changeLocation() {}
+function changeForecastMeasurement(variable) {
+  for (let i = 0; i < 7; i++) {
+    let avgTemp = document.getElementById("avgTemp_" + [i]);
+    if (variable === "f") {
+      avgTemp.innerText = data.forecast.forecastday[i].day.avgtemp_c + " °C";
+    } else if (variable === "c") {
+      avgTemp.innerText = data.forecast.forecastday[i].day.avgtemp_f + " °F";
+    }
+  }
+}
 
 function setData(variable) {
   data = variable;
